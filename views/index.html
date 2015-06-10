@@ -16,14 +16,14 @@
         <!-- Bootbusiness theme -->
         <link href="css/boot-business.css" rel="stylesheet">
     </head>
-    <body>
+    <body  ng-app="app" ng-controller="indexController">
         <!-- Start: HEADER -->
         <header>
             <!-- Start: Navigation wrapper -->
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a href="#" class="brand brand-bootbus">Bootbusiness</a>
+                        <a href="#" class="brand brand-bootbus">{{navigation.name}}</a>
                         <!-- Below button used for responsive navigation -->
                         <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                             <span class="icon-bar"></span>
@@ -300,8 +300,19 @@
             <!-- End: PRODUCT LIST -->
         </div>
         <!-- End: MAIN CONTENT -->
+        <!-- Start: FOOTER -->
+        <footer>
+            <div class="container">
+                <p>
+                    &copy; 2012-3000 Bootbusiness, Inc. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+        <!-- End: FOOTER -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/boot-business.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/controllers/indexController.js"></script>
     </body>
 </html>
