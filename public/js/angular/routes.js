@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'faq',
             controller: 'faqController'
         })
+        .when('/contactMe', {
+            templateUrl: 'contactMe',
+            controller: 'contactMeController'
+        })
         .otherwise({
             redirectTo: 'index'
         });

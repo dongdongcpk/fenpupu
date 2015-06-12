@@ -10,7 +10,9 @@ module.exports = function(app) {
         res.render('faq', {title: 'Express'});
     });
     app.get('/faqContent', function(req, res) {
-        console.log(2222222);
         res.send('有什么问题请尽管提问吧 ヾ(o◕∀◕)ﾉ');
+    });
+    app.get('/contactMe', function(req, res) {
+        res.render('contactMe');
     });
 };
