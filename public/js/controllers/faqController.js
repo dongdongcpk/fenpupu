@@ -5,5 +5,5 @@ app.controller('faqController', ['$scope', '$http',
         $http.get('faqContent')
             .success(function(res) {
                 $scope.content = res;
-            })
+            });
 }]);

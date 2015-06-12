@@ -1,5 +1,5 @@
 
-app.controller('indexController', ['$scope', function($scope) {
+app.controller('baseController', ['$scope', function($scope) {
     $scope.nav = {
         name: '粉扑扑 (｡・`ω´･)',
         video: 'Products and Services',

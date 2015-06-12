@@ -4,7 +4,7 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'index',
-            controller: 'indexController'
+//            controller: 'indexController'
         })
         .when('/faq', {
             templateUrl: 'faq',
