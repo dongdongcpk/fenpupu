@@ -4,7 +4,7 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'index',
-//            controller: 'indexController'
+            controller: 'indexController'
         })
         .when('/faq', {
             templateUrl: 'faq',
@@ -13,6 +13,10 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/contactMe', {
             templateUrl: 'contactMe',
             controller: 'contactMeController'
+        })
+        .when('/photos', {
+            templateUrl: 'photos',
+            controller: 'photosController'
         })
         .otherwise({
             redirectTo: 'index'

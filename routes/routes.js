@@ -1,18 +1,20 @@
 module.exports = function(app) {
     app.get('/', function(req, res) {
-        res.render('base', {title: 'Express'});
+        res.render('base');
     });
     app.get('/index', function(req, res) {
-        console.log(111111);
-        res.render('index', {title: 'Express'});
+        res.render('index');
     });
     app.get('/faq', function(req, res) {
-        res.render('faq', {title: 'Express'});
+        res.render('faq');
     });
     app.get('/faqContent', function(req, res) {
         res.send('有什么问题请尽管提问吧 ヾ(o◕∀◕)ﾉ');
     });
     app.get('/contactMe', function(req, res) {
         res.render('contactMe');
+    });
+    app.get('/photos', function(req, res) {
+        res.render('photos');
     });
 };
