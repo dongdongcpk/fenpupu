@@ -14,7 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'contactMe',
             controller: 'contactMeController'
         })
-        .when('/photos', {
+        .when('/photos/:page', {
             templateUrl: 'photos',
             controller: 'photosController'
         })
