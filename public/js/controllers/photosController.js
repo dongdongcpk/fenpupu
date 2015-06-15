@@ -28,6 +28,5 @@ app.controller('photosController', ['$scope', '$routeParams',
             ];
         }
         $scope.names = names;
-        console.log(page, typeof page);
-        console.log($scope.names);
+        $scope.active = 'active';
 }]);
