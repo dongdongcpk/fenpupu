@@ -22,18 +22,8 @@ module.exports = function(app) {
         res.render('photos');
     });
     app.post('/sendQuickMsg', function(req, res) {
-        console.log(req.body);
-        var data = {
-            name: '',
-            email: '',
-            message: '',
-            date: ''
-        };
-        data.name = req.body.name;
-        data.email = req.body.email;
-        data.message = req.body.message;
-        data.date = 'today';
-        var quickMsg = new QuickMsg(data);
+        req.body.date = new Date().toLocaleString();
+        var quickMsg = new QuickMsg(req.body);
         quickMsg.save();
         res.send('ok');
     });
