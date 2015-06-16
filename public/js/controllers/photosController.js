@@ -29,4 +29,15 @@ app.controller('photosController', ['$scope', '$routeParams',
         }
         $scope.names = names;
         $scope.active = 'active';
+
+        var options = {
+            currentPage: page,
+            totalPages: 6,
+            numberOfPages: 6,
+            alignment: 'center',
+            pageUrl: function(type, page, current) {
+                return '#photos/' + page;
+            }
+        };
+        $('#example').bootstrapPaginator(options);
 }]);
