@@ -31,4 +31,10 @@ module.exports = function(app) {
 //        }
         res.send('ok');
     });
+    app.get('/videos', function(req, res) {
+        res.render('videos');
+    });
+    app.get('/videoDetail', function(req, res) {
+        res.render('videoDetail');
+    });
 };

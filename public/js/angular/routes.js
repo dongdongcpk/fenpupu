@@ -18,6 +18,14 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'photos',
             controller: 'photosController'
         })
+        .when('/videos/:page', {
+            templateUrl: 'videos',
+            controller: 'videosController'
+        })
+        .when('/videoDetail/:id', {
+            templateUrl: 'videoDetail',
+            controller: 'videoDetailController'
+        })
         .otherwise({
             redirectTo: 'index'
         });
