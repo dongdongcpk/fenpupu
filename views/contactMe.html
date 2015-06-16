@@ -12,37 +12,29 @@
                 <div class="control-group">
                     <div class="controls">
                         <input type="text" required id="inputName" placeholder={{qMsg.name}} ng-model="msg.name">
+                        <div ng-show="msg.name.length > 20">{{limit.name}}</div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <input type="email" required id="inputEmail" placeholder={{qMsg.email}} ng-model="msg.email">
+                        <div ng-show="msg.email.length > 40">{{limit.email}}</div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <textarea id="inputMessage" required placeholder={{qMsg.message}} ng-model="msg.message"></textarea>
+                        <div ng-show="msg.message.length > 140">{{limit.message}}</div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
-                        <a data-target="#sendMsg" data-toggle="modal">
-                            <input type="submit" class="btn btn-primary btn-large" value={{qMsg.send}} ng-click="sendMsg()">
-                        </a>
-                        <!-- Start: Modal -->
-                        <div class="modal hide fade" id="sendMsg" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h3 id="myModalLabel">消息已发送</h3>
-                            </div>
-                            <div class="modal-body">
-                                正在马不停蹄地发往服务器...
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </div>
-                        <!-- End: Modal -->
+                        <input type="submit" class="btn btn-primary btn-large" value={{qMsg.send}} ng-click="sendMsg()">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls" ng-show="show">
+                        <h4>{{limit.send}}</h4>
                     </div>
                 </div>
             </form>

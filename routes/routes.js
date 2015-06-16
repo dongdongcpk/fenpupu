@@ -22,9 +22,13 @@ module.exports = function(app) {
         res.render('photos');
     });
     app.post('/sendQuickMsg', function(req, res) {
-        req.body.date = new Date().toLocaleString();
-        var quickMsg = new QuickMsg(req.body);
-        quickMsg.save();
+//        if(req.body.name && req.body.email && req.body.message) {
+//            if(req.body.name.length <= 20 && req.body.email.length <= 40 && req.body.message.length <= 140) {
+//                req.body.date = new Date().toLocaleString();
+//                var quickMsg = new QuickMsg(req.body);
+//                quickMsg.save();
+//            }
+//        }
         res.send('ok');
     });
 };
