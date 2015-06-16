@@ -1,3 +1,5 @@
+var fs = require('fs');
+var path = require('path');
 var mongoose = require('mongoose');
 var quickMsg = require('../db/models/quickMsg');
 var QuickMsg = mongoose.model('QuickMsg');
@@ -36,5 +38,21 @@ module.exports = function(app) {
     });
     app.get('/videoDetail', function(req, res) {
         res.render('videoDetail');
+    });
+    app.get('/getPhotos/:page', function(req, res) {
+        var page = parseInt(req.params.page, 10);
+        var files = fs.readdirSync(path.join(__dirname, '../public/img/photos'));
+        var len = files.length;
+        var maxPage = Math.ceil(len / 8);
+        page = Math.min(page, maxPage);
+        var start = (page - 1) * 8;
+        var end = page * 8;
+        files = files.slice(start, end);
+        var names = [];
+        for(var i = 0; i < files.length; i++) {
+            var name = path.join('img/photos', files[i]);
+            names.push(name);
+        }
+        res.send(names);
     });
 };
