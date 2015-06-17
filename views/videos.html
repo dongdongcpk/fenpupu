@@ -4,10 +4,9 @@
     </div>
     <div class="row-fluid">
         <ul class="thumbnails">
-            <li class="span4">
+            <li class="span4" ng-repeat="video1 in videos1">
                 <div class="thumbnail">
-                    <img ng-src={{videos[0].video}} alt="product name">
-                    <!--<embed quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="http://share.acg.tv/flash.swf" flashvars="aid=2397392&page=1" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>-->
+                    <img ng-src={{video1.video}} alt="product name">
                     <div class="caption">
                         <h3>Product name</h3>
                         <p>
@@ -18,43 +17,7 @@
                     <div class="widget-footer">
                         <p>
                             <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[0].url}} class="btn">Read more</a>
-                        </p>
-                    </div>
-                </div>
-            </li>
-            <li class="span4">
-                <div class="thumbnail">
-                    <img ng-src={{videos[1].video}} alt="product name">
-                    <div class="caption">
-                        <h3>Product name</h3>
-                        <p>
-                            Few attractive words about your product.Few attractive words about your product.
-                            Few attractive words about your product.Few attractive words about your product.
-                        </p>
-                    </div>
-                    <div class="widget-footer">
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[1].url}} class="btn">Read more</a>
-                        </p>
-                    </div>
-                </div>
-            </li>
-            <li class="span4">
-                <div class="thumbnail">
-                    <img ng-src={{videos[2].video}} alt="product name">
-                    <div class="caption">
-                        <h3>Product name</h3>
-                        <p>
-                            Few attractive words about your product.Few attractive words about your product.
-                            Few attractive words about your product.Few attractive words about your product.
-                        </p>
-                    </div>
-                    <div class="widget-footer">
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[2].url}} class="btn">Read more</a>
+                            <a href={{video1.url}} class="btn">Read more</a>
                         </p>
                     </div>
                 </div>
@@ -63,9 +26,9 @@
     </div>
     <div class="row-fluid">
         <ul class="thumbnails">
-            <li class="span4">
+            <li class="span4" ng-repeat="video2 in videos2">
                 <div class="thumbnail">
-                    <img ng-src={{videos[3].video}} alt="product name">
+                    <img ng-src={{video2.video}} alt="product name">
                     <div class="caption">
                         <h3>Product name</h3>
                         <p>
@@ -76,43 +39,7 @@
                     <div class="widget-footer">
                         <p>
                             <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[3].url}} class="btn">Read more</a>
-                        </p>
-                    </div>
-                </div>
-            </li>
-            <li class="span4">
-                <div class="thumbnail">
-                    <img ng-src={{videos[4].video}} alt="product name">
-                    <div class="caption">
-                        <h3>Product name</h3>
-                        <p>
-                            Few attractive words about your product.Few attractive words about your product.
-                            Few attractive words about your product.Few attractive words about your product.
-                        </p>
-                    </div>
-                    <div class="widget-footer">
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[4].url}} class="btn">Read more</a>
-                        </p>
-                    </div>
-                </div>
-            </li>
-            <li class="span4">
-                <div class="thumbnail">
-                    <img ng-src={{videos[5].video}} alt="product name">
-                    <div class="caption">
-                        <h3>Product name</h3>
-                        <p>
-                            Few attractive words about your product.Few attractive words about your product.
-                            Few attractive words about your product.Few attractive words about your product.
-                        </p>
-                    </div>
-                    <div class="widget-footer">
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy now</a>&nbsp;
-                            <a href={{videos[5].url}} class="btn">Read more</a>
+                            <a href={{video2.url}} class="btn">Read more</a>
                         </p>
                     </div>
                 </div>

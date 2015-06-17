@@ -49,12 +49,12 @@ module.exports = function(app) {
         var start = (page - 1) * 8;
         var end = page * 8;
         files = files.slice(start, end);
-        var names = [];
+        var photos = [];
         for(var i = 0; i < files.length; i++) {
-            var name = path.join('img/photos', files[i]);
-            names.push(name);
+            var photo = path.join('img/photos', files[i]);
+            photos.push(photo);
         }
-        res.send(names);
+        res.send(photos);
     });
     app.get('/getVideos/:page', function(req, res) {
         var page = parseInt(req.params.page, 10);

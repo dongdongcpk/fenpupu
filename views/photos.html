@@ -5,9 +5,9 @@
     <div class="row">
         <div class="span12">
             <ul class="thumbnails">
-                <li class="span3">
+                <li class="span3" ng-repeat="photo1 in photos1">
                     <a data-target="#portfolioModal1" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[0]}}>
+                        <img ng-src={{photo1}}>
                     </a>
                     <!-- Start: Modal -->
                     <div class="modal hide fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
@@ -17,70 +17,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="center-align">
-                                <img ng-src={{names[0]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal2" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[1]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[1]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal3" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[2]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[2]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal4" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[3]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[3]}} class="bottom-space-less thumbnail" alt="image name">
+                                <img ng-src={{photo1}} class="bottom-space-less thumbnail" alt="image name">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -91,9 +28,9 @@
                 </li>
             </ul>
             <ul class="thumbnails">
-                <li class="span3">
+                <li class="span3" ng-repeat="photo2 in photos2">
                     <a data-target="#portfolioModal5" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[4]}}>
+                        <img ng-src={{photo2}}>
                     </a>
                     <!-- Start: Modal -->
                     <div class="modal hide fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
@@ -103,70 +40,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="center-align">
-                                <img ng-src={{names[4]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal6" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[5]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[5]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal7" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[6]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[6]}} class="bottom-space-less thumbnail" alt="image name">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">{{close}}</button>
-                        </div>
-                    </div>
-                    <!-- End: Modal -->
-                </li>
-                <li class="span3">
-                    <a data-target="#portfolioModal8" class="thumbnail" data-toggle="modal">
-                        <img ng-src={{names[7]}}>
-                    </a>
-                    <!-- Start: Modal -->
-                    <div class="modal hide fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="portfolioList" aria-hidden="true">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h3 id="myModalLabel">{{modalTitle}}</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="center-align">
-                                <img ng-src={{names[7]}} class="bottom-space-less thumbnail" alt="image name">
+                                <img ng-src={{photo2}} class="bottom-space-less thumbnail" alt="image name">
                             </div>
                         </div>
                         <div class="modal-footer">

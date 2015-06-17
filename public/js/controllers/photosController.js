@@ -4,7 +4,8 @@ app.controller('photosController', ['$scope', '$routeParams', '$http',
         var page = $routeParams.page;
         $http.get('getPhotos/' + page)
             .success(function(res) {
-                $scope.names = res;
+                $scope.photos1 = res.slice(0, 4);
+                $scope.photos2 = res.slice(4, 8);
             });
         $scope.modalTitle = '扑扑 ╮(￣▽￣)╭';
         $scope.close = '关闭';

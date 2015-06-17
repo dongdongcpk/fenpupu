@@ -4,9 +4,8 @@ app.controller('videosController', ['$scope', '$routeParams', '$http',
         var page = $routeParams.page;
         $http.get('getVideos/' + page)
             .success(function(res) {
-                $scope.videos = res;
-//                $scope.videos1 = res.slice(0, 3);
-//                $scope.videos2 = res.slice(3, 6);
+                $scope.videos1 = res.slice(0, 3);
+                $scope.videos2 = res.slice(3, 6);
             });
 
         var options = {
