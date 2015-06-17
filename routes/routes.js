@@ -3,6 +3,7 @@ var path = require('path');
 var mongoose = require('mongoose');
 var quickMsg = require('../db/models/quickMsg');
 var QuickMsg = mongoose.model('QuickMsg');
+var videoConf = require('../config/videosConf');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
@@ -54,5 +55,26 @@ module.exports = function(app) {
             names.push(name);
         }
         res.send(names);
+    });
+    app.get('/getVideos/:page', function(req, res) {
+        var page = parseInt(req.params.page, 10);
+        var files = fs.readdirSync(path.join(__dirname, '../public/img/covers'));
+        var len = files.length;
+        var maxPage = Math.ceil(len / 8);
+        page = Math.min(page, maxPage);
+        var start = (page - 1) * 8;
+        var end = page * 8;
+        files = files.slice(start, end);
+        var videos = [];
+        for(var i = 0; i < files.length; i++) {
+            var video = path.join('img/covers', files[i]);
+            var obj = videoConf[files[i]];
+            obj.video = video;
+            videos.push(obj);
+        }
+        res.send(videos);
+    });
+    app.get('/getVideo/:id', function(req, res) {
+        res.send('aid=2397392&page=1');
     });
 };
