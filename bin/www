@@ -7,9 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('fenpupu:server');
 var http = require('http');
-//var db = require('../db/mongodb');
-//
-//db.connect();
+var db = require('../db/mongodb');
+
+db.connect();
 
 /**
  * Get port from environment and store in Express.
