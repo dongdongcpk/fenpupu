@@ -6,7 +6,7 @@
         <div class="span12">
             <ul class="thumbnails">
                 <li class="span3" ng-repeat="photo1 in photos1">
-                    <a data-target="#portfolioModal1" class="thumbnail" data-toggle="modal">
+                    <a data-target="#portfolioModal1" class="thumbnail" data-toggle="modal" ng-click="photoDetail(photo1)">
                         <img ng-src={{photo1}}>
                     </a>
                     <!-- Start: Modal -->
@@ -17,7 +17,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="center-align">
-                                <img ng-src={{photo1}} class="bottom-space-less thumbnail" alt="image name">
+                                <img ng-src={{photo}} class="bottom-space-less thumbnail" alt="image name">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -29,7 +29,7 @@
             </ul>
             <ul class="thumbnails">
                 <li class="span3" ng-repeat="photo2 in photos2">
-                    <a data-target="#portfolioModal5" class="thumbnail" data-toggle="modal">
+                    <a data-target="#portfolioModal5" class="thumbnail" data-toggle="modal" ng-click="photoDetail(photo2)">
                         <img ng-src={{photo2}}>
                     </a>
                     <!-- Start: Modal -->
@@ -40,7 +40,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="center-align">
-                                <img ng-src={{photo2}} class="bottom-space-less thumbnail" alt="image name">
+                                <img ng-src={{photo}} class="bottom-space-less thumbnail" alt="image name">
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -23,4 +23,8 @@ app.controller('photosController', ['$scope', '$routeParams', '$http',
         $scope.modalTitle = '扑扑 ╮(￣▽￣)╭';
         $scope.close = '关闭';
 
+        $scope.photoDetail = function(photo) {
+            $scope.photo = photo;
+        }
+
 }]);
