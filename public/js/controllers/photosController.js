@@ -1,6 +1,9 @@
 
 app.controller('photosController', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
+        $scope.h1 = '扑扑的照片墙';
+        $scope.small = '咳..咳 请自备纸巾(→_→)';
+
         var page = $routeParams.page;
         $http.get('getPhotos/' + page)
             .success(function(res) {

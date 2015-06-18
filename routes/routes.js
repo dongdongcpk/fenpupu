@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var quickMsg = require('../db/models/quickMsg');
 var QuickMsg = mongoose.model('QuickMsg');
 var videoConf = require('../config/videosConf');
+var videlDetailConf = require('../config/videoDetailConf');
 
 var photoFiles = [];
 var coverFiles = [];
@@ -15,11 +16,8 @@ module.exports = function(app) {
     app.get('/index', function(req, res) {
         res.render('index');
     });
-    app.get('/faq', function(req, res) {
-        res.render('faq');
-    });
-    app.get('/faqContent', function(req, res) {
-        res.send('有什么问题请尽管提问吧 ヾ(o◕∀◕)ﾉ');
+    app.get('/log', function(req, res) {
+        res.render('log');
     });
     app.get('/contactMe', function(req, res) {
         res.render('contactMe');
@@ -66,6 +64,7 @@ module.exports = function(app) {
         var page = parseInt(req.params.page, 10);
         if(coverFiles.length === 0) {
             coverFiles = fs.readdirSync(path.join(__dirname, '../public/img/covers'));
+            coverFiles.sort(sortCovers);
         }
         var files = coverFiles;
         var len = files.length;
@@ -84,6 +83,25 @@ module.exports = function(app) {
         res.send(videos);
     });
     app.get('/getVideo/:id', function(req, res) {
-        res.send('aid=2397392&page=1');
+        var id = req.params.id;
+        var resp = {};
+        var key = videlDetailConf[id];
+        if(!!key) {
+            var conf = videoConf[key];
+            resp.title = conf.title;
+            resp.desc = conf.desc;
+        }
+        res.send(resp);
     });
+};
+
+var sortCovers = function(cover1, cover2) {
+    id1 = cover1.split('.')[0];
+    id2 = cover2.split('.')[0];
+    if(id1 > id2) {
+        return -1;
+    }
+    else{
+        return 1;
+    }
 };

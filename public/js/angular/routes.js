@@ -6,9 +6,9 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'index',
             controller: 'indexController'
         })
-        .when('/faq', {
-            templateUrl: 'faq',
-            controller: 'faqController'
+        .when('/log', {
+            templateUrl: 'log',
+            controller: 'logController'
         })
         .when('/contactMe', {
             templateUrl: 'contactMe',

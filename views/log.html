@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="page-header">
+        <h1>开发日志</h1>
+    </div>
+    <div class="row">
+        <div class="span6 offset1">
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-group" ng-repeat="log in logs">
+                    <div class="accordion-heading">
+                        <h4>
+                            <i class="icon-time"></i> {{log.date}}
+                        </h4>
+                    </div>
+                    <div id="faq1" class="accordion-body collapse in">
+                        <div class="accordion-inner">
+                            <p>
+                                <i class="icon-wrench"></i> {{log.contant}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
