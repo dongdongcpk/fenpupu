@@ -6,6 +6,7 @@ var QuickMsg = mongoose.model('QuickMsg');
 var videosConf = require('../config/videosConf');
 var videoDetailConf = require('../config/videoDetailConf');
 var logsConf = require('../config/logsConf');
+var _ = require('underscore');
 
 var photoFiles = [];
 var coverFiles = [];
@@ -56,7 +57,7 @@ module.exports = function(app) {
     app.get('/getPhotos/:page', function(req, res) {
         var page = parseInt(req.params.page, 10);
         if(photoFiles.length === 0) {
-            photoFiles = fs.readdirSync(path.join(__dirname, '../public/img/photos'));
+            photoFiles = _.shuffle(fs.readdirSync(path.join(__dirname, '../public/img/photos')));
         }
         var files = photoFiles;
         var len = files.length;
@@ -71,7 +72,7 @@ module.exports = function(app) {
             var photo = path.join('img/photos', files[i]);
             photos.push(photo);
         }
-        res.send(photos);
+        res.send({photos: photos, maxPage: maxPage});
     });
     app.get('/getVideos/:page', function(req, res) {
         var page = parseInt(req.params.page, 10);
