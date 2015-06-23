@@ -36,4 +36,8 @@ app.controller('indexController', ['$scope', function($scope) {
     $scope.photo1 = 'img/photos/fenpupu (144).jpg';
     $scope.photo2 = 'img/photos/fenpupu (106).jpg';
     $scope.photo3 = 'img/photos/fenpupu (97).jpg';
+
+    $('.carousel').carousel({
+        interval: 3000
+    })
 }]);

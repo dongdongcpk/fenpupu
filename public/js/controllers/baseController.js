@@ -10,5 +10,5 @@ app.controller('baseController', ['$scope', function($scope) {
     };
     $scope.tips = function() {
         alert(' (＞﹏＜)  开发中，下一版放出哟');
-    }
+    };
 }]);
