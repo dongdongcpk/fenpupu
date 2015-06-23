@@ -108,6 +108,9 @@ module.exports = function(app) {
         }
         res.send(resp);
     });
+    app.get('/board', function(req, res) {
+        res.render('board');
+    });
 };
 
 var sortCovers = function(cover1, cover2) {

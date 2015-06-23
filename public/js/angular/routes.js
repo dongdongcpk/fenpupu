@@ -26,6 +26,10 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'videoDetail',
             controller: 'videoDetailController'
         })
+        .when('/board', {
+            templateUrl: 'board',
+            controller: 'boardController'
+        })
         .otherwise({
             redirectTo: 'index'
         });

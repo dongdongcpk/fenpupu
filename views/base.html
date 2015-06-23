@@ -14,6 +14,7 @@
         <!--<link href="css/font-awesome-ie7.css" rel="stylesheet">-->
         <!-- Bootbusiness theme -->
         <link href="css/boot-business.css" rel="stylesheet">
+        <link href="css/style.min.css" rel="stylesheet">
     </head>
     <body  ng-app="app" ng-controller="baseController">
         <!-- Start: HEADER -->
@@ -38,7 +39,7 @@
                                         <li><a href="#videos/1">视频</a></li>
                                         <li><a href="#photos/1">照片墙</a></li>
                                         <li><a ng-click="tips()">博客</a></li>
-                                        <li><a ng-click="tips()">留言板</a></li>
+                                        <li><a href="#board">留言板</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#logs/1">{{nav.log}}</a></li>
@@ -70,6 +71,7 @@
         <script type="text/javascript" src="js/angular-route.min.js"></script>
         <script type="text/javascript" src="js/angular/routes.js"></script>
         <script type="text/javascript" src="js/bootstrap-paginator.min.js"></script>
+        <script type="text/javascript" src="js/CommentCoreLibrary.js"></script>
         <!-- 控制器 -->
         <script type="text/javascript" src="js/controllers/baseController.js"></script>
         <script type="text/javascript" src="js/controllers/indexController.js"></script>
@@ -78,5 +80,6 @@
         <script type="text/javascript" src="js/controllers/contactMeController.js"></script>
         <script type="text/javascript" src="js/controllers/videosController.js"></script>
         <script type="text/javascript" src="js/controllers/videoDetailController.js"></script>
+        <script type="text/javascript" src="js/controllers/boardController.js"></script>
     </body>
 </html>
