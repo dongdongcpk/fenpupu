@@ -111,6 +111,14 @@ module.exports = function(app) {
     app.get('/board', function(req, res) {
         res.render('board');
     });
+    app.post('/sendBoardMsg', function(req, res) {
+        if(req.body.name && req.body.message) {
+            if(req.body.name.length <= 20 && req.body.message.length <= 140) {
+
+            }
+        }
+        res.send('ok');
+    });
 };
 
 var sortCovers = function(cover1, cover2) {
