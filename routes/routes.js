@@ -3,6 +3,8 @@ var path = require('path');
 var mongoose = require('mongoose');
 var quickMsg = require('../db/models/quickMsg');
 var QuickMsg = mongoose.model('QuickMsg');
+var board = require('../db/models/board');
+var Board = mongoose.model('Board');
 var videosConf = require('../config/videosConf');
 var videoDetailConf = require('../config/videoDetailConf');
 var logsConf = require('../config/logsConf');
@@ -10,6 +12,8 @@ var _ = require('underscore');
 
 var photoFiles = [];
 var coverFiles = [];
+var sizes = [12, 16, 18, 25, 36, 45];
+var colors = [];
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
@@ -114,10 +118,16 @@ module.exports = function(app) {
     app.post('/sendBoardMsg', function(req, res) {
         if(req.body.name && req.body.message) {
             if(req.body.name.length <= 20 && req.body.message.length <= 140) {
-
+                var board = new Board();
+                board.size = _.sample(sizes);
+                board.author = req.body.name;
+                board.text = req.body.message;
+                board.date = new Date();
+//                board.save();
+                res.send(board);
             }
         }
-        res.send('ok');
+//        res.send('ok');
     });
 };
 

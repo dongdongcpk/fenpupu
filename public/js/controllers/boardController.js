@@ -24,16 +24,8 @@ app.controller('boardController', ['$scope', '$http',
                     $http.post('sendBoardMsg', $scope.msg)
                         .success(function(res) {
                             console.log(res);
+                            CM.send(res);
                         });
-
-                    var co = {
-                        "mode": 1,
-                        "text": $scope.msg.message,
-                        "stime": 0,
-                        "size": 25,
-                        "color": 0x000000
-                    };
-                    CM.send(co);
 
                     $scope.msg = {};
                     $scope.show = true;
@@ -60,10 +52,10 @@ app.controller('boardController', ['$scope', '$http',
         CM.load(danmakuList);
         var startTime = 0;
         var a = setInterval(function() {
-            startTime += 100;
+            startTime += 500;
             CM.time(startTime);
             if(startTime > 5000) {
-                clearInterval(a);
+                startTime = 0;
             }
-        }, 100);
+        }, 500);
     }]);
