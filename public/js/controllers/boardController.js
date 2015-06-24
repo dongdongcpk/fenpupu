@@ -1,6 +1,6 @@
 
-app.controller('boardController', ['$scope', '$http',
-    function($scope, $http) {
+app.controller('boardController', ['$scope', '$http', '$routeParams',
+    function($scope, $http, $routeParams) {
         var CM = new CommentManager($('#my-comment-stage').get(0));
         CM.init();
         CM.start();
@@ -17,14 +17,54 @@ app.controller('boardController', ['$scope', '$http',
             message: '内容长度小于等于140',
             send: '已发送！'
         };
+
+        var page = $routeParams.page;
+        var boards;
+        $http.get('getBoards/' + page)
+            .success(function(res) {
+                boards = res.boards;
+                boards.sort(function(board1, board2) {
+                    date1 = board1.date;
+                    date2 = board2.date;
+                    if(date1 > date2) {
+                        return 1;
+                    }
+                    else{
+                        return -1;
+                    }
+                });
+                for(var i = 0, len = boards.length; i < len; i++) {
+                    var board = boards[i];
+                    board.color = parseInt(board.color, 16);
+                    board.stime = 600 * (i + 1);
+                }
+                CM.load(boards);
+                $scope.boards = boards;
+
+                var options = {
+                    currentPage: page,
+                    totalPages: res.maxPage,
+                    numberOfPages: 6,
+                    alignment: 'center',
+                    pageUrl: function(type, page, current) {
+                        return '#boards/' + page;
+                    }
+                };
+                $('#boards').bootstrapPaginator(options);
+            });
+
+        var stimes = [600, 600*2, 600*3, 600*4, 600*5, 600*6];
         $scope.show = false;
         $scope.sendMsg = function() {
             if($scope.msg.name && $scope.msg.message) {
                 if($scope.msg.name.length <= 20 && $scope.msg.message.length <= 140) {
                     $http.post('sendBoardMsg', $scope.msg)
                         .success(function(res) {
-                            console.log(res);
-                            CM.send(res);
+                            res.color = parseInt(res.color, 16);
+                            var r = Math.floor(Math.random() * (stimes.length + 1));
+                            res.stime = stimes[r];
+                            boards.push(res);
+                            boards.shift();
                         });
 
                     $scope.msg = {};
@@ -33,25 +73,8 @@ app.controller('boardController', ['$scope', '$http',
             }
         };
 
-        var danmakuList = [
-            {
-                "mode":1,
-                "text":"Hello World",
-                "stime":1000,
-                "size":25,
-                "color":0xffffff
-            },
-            {
-                "mode":1,
-                "text":"Hello CommentCoreLibrary",
-                "stime":3000,
-                "size":30,
-                "color":0xff0000
-            }
-        ];
-        CM.load(danmakuList);
         var startTime = 0;
-        var a = setInterval(function() {
+        setInterval(function() {
             startTime += 500;
             CM.time(startTime);
             if(startTime > 5000) {

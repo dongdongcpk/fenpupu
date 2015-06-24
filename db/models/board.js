@@ -15,11 +15,25 @@ var boardSchema = new Schema({
     },
     // 弹幕颜色
     color: {
-        type: Number,
-        default: 0x000000
+        type: String,
+        default: '0x000000'
     },
     date: Date,
     author: String
 });
+
+boardSchema.statics.getBoardsCount = function(cb) {
+    this.find()
+        .count()
+        .exec(cb);
+};
+
+boardSchema.statics.getBoardsByPage = function(page, cb) {
+    this.find()
+        .sort({_id: -1})
+        .skip(6 * (page - 1))
+        .limit(6 * page)
+        .exec(cb);
+};
 
 var Board = mongoose.model('Board', boardSchema);

@@ -12,8 +12,9 @@ var _ = require('underscore');
 
 var photoFiles = [];
 var coverFiles = [];
-var sizes = [12, 16, 18, 25, 36, 45];
-var colors = [];
+var sizes = [25, 36, 45];
+var colors = ['0x000000', '0xFF0033', '0x0033FF', '0xFFFF33', '0x66FF00', '0x00FFFF'];
+var boardsCount = 0;
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
@@ -115,15 +116,49 @@ module.exports = function(app) {
     app.get('/board', function(req, res) {
         res.render('board');
     });
+    app.get('/getBoards/:page', function(req, res) {
+        var page = parseInt(req.params.page, 10);
+        if(!boardsCount) {
+            Board.getBoardsCount(function(err, count) {
+                if(err) {
+                    throw err;
+                }
+                boardsCount = count;
+                var maxPage = Math.floor(boardsCount / 6);
+                page = Math.max(page, 1);
+                page = Math.min(page, maxPage);
+                Board.getBoardsByPage(page, function(err, docs) {
+                    if(err) {
+                        throw err;
+                    }
+                    res.send({boards: docs, maxPage: maxPage});
+                })
+            });
+        }
+        else {
+            var maxPage = Math.floor(boardsCount / 6);
+            page = Math.max(page, 1);
+            page = Math.min(page, maxPage);
+            Board.getBoardsByPage(page, function(err, docs) {
+                if(err) {
+                    throw err;
+                }
+                res.send({boards: docs, maxPage: maxPage});
+            })
+        }
+    });
     app.post('/sendBoardMsg', function(req, res) {
         if(req.body.name && req.body.message) {
             if(req.body.name.length <= 20 && req.body.message.length <= 140) {
+                boardsCount += 1;
+
                 var board = new Board();
                 board.size = _.sample(sizes);
+                board.color = _.sample(colors);
                 board.author = req.body.name;
                 board.text = req.body.message;
                 board.date = new Date();
-//                board.save();
+                board.save();
                 res.send(board);
             }
         }

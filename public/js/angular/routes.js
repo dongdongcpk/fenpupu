@@ -26,7 +26,7 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'videoDetail',
             controller: 'videoDetailController'
         })
-        .when('/board', {
+        .when('/boards/:page', {
             templateUrl: 'board',
             controller: 'boardController'
         })
