@@ -32,7 +32,7 @@ boardSchema.statics.getBoardsByPage = function(page, cb) {
     this.find()
         .sort({_id: -1})
         .skip(6 * (page - 1))
-        .limit(6 * page)
+        .limit(6)
         .exec(cb);
 };
 
